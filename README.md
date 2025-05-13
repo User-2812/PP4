@@ -56,6 +56,7 @@ In this exercise you will:
 
 ```bash
 # 1) The exact ssh command you ran
+ssh user2812@192.168.2.123
 # 2) A detailed, step-by-step explanation of what happened at each stage
 ```
 
@@ -85,8 +86,11 @@ In this exercise you will:
 
 ```bash
 # 1) The ssh-keygen command you ran
+ssh-keygen -t ed25519 -C wrobla28@stud.thga.de
 # 2) The file paths of the generated keys
+/root/.ssh/id_ed25519
 # 3) Your written explanation (3–5 sentences) of the signature process
+Es wird ein Schlüsselpaar erstellt, mithilfe des ED 25519-Algorithmuses. Desweiteren wird der schlüssel zusätzlich durch einen Passphrase gesichert. Dem schlüssel wird zusätzlich die angegebene Email angehängt.
 ```
 
 ---
