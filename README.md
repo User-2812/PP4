@@ -147,6 +147,7 @@ User backup
 Port 2222
 IdentityFile ~/.ssh/id_ed25519_backup
 # 2) A short explanation (3–4 sentences) of how the config simplifies connections
+Das config file wird von oben nach unten gelesen. Es wird der eingegebene Hostname mit den Host-Einträgen verglichen. Der Host ist dabei nur ein Alias, den man frei wählen kann, während der HostName die tatsächliche IP-Adresse oder den Servernamen angibt.
 ```
 
 ---
