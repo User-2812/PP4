@@ -58,6 +58,12 @@ In this exercise you will:
 # 1) The exact ssh command you ran
 ssh user2812@192.168.2.123
 # 2) A detailed, step-by-step explanation of what happened at each stage
+1. Es wird eine Verbindung zum remote host aufgebaut (Port 22)
+2. Anschließend findet der "Handshake" statt.
+3. Daraufhin findet die Authentifikation statt. Hier wird die Identität des users geprüft (Benutzername und Password). Das password wird verschlüsselt übertragen.
+4. Der Remote Host verifiziert den benutzer.
+5. Man ist verbunden und kann
+auf dem remote host arbeiten.
 ```
 
 ---
@@ -130,6 +136,16 @@ Es wird ein Schlüsselpaar erstellt, mithilfe des ED 25519-Algorithmuses. Deswei
 
 ```text
 # 1) The full contents of your ~/.ssh/config
+Host my-remote
+HostName 192.168.2.123
+User user2812
+IdentityFile ~/.ssh/id_ed25519
+
+Host backup-server
+HostName 192.168.2.123
+User backup
+Port 2222
+IdentityFile ~/.ssh/id_ed25519_backup
 # 2) A short explanation (3–4 sentences) of how the config simplifies connections
 ```
 
@@ -167,8 +183,15 @@ Es wird ein Schlüsselpaar erstellt, mithilfe des ED 25519-Algorithmuses. Deswei
 
 ```bash
 # 1) Each scp command you ran
+scp ~/Documents/LtoR user2812@192.168.2.123:/home/user2812/backup/
+scp user2812@192.168.2.123:/home/user2812/logs/RtoL ./downloads/
+scp user2812@192.168.2.123:/home/user2812/test/RtoR user2812@192.168.2.123:/home/user2812/PP4/
+
 # 2) Any flags or options used
+Wäre 3. ein Verzeichnis, müsste -r genutzt werden
+
 # 3) A brief explanation (2–3 sentences) of scp’s mechanism
+Scp nutzt eine SSH verbindung um Dateien sicher zu übertragen. Die Datei ist dabei verschlüsselt.
 ```
 
 ---
